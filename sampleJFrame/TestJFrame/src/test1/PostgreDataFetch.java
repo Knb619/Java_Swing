@@ -15,16 +15,17 @@ public class PostgreDataFetch {
 		try (Connection connection = DriverManager.getConnection(url, userName, password)) {
 			System.out.println("Connected to the PostgreSQL server successfully.");
 			
-			String sql = "SELECT CustomerID, Name, Sex, Age FROM Customer;";
+			String sql = "SELECT customerid, name, sex, age FROM public.customer;";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			ResultSet resultSet = statement.executeQuery();
 			
 			while(resultSet.next()) {
-				int customerID = resultSet.getInt("CustomerID");
-				String sex = resultSet.getString("Sex");
-				int age = resultSet.getInt("Age");
+				int customerID = resultSet.getInt("customerid");
+				String name = resultSet.getString("name");
+				String sex = resultSet.getString("sex");
+				int age = resultSet.getInt("age");
 				
-				System.out.println("CustomerID:" + customerID + " " + "Sex:" + sex + " " + "Age:" + age);
+				System.out.println("CustomerID:" + customerID + " " + "Name:" + name + " " + "Sex:" + sex + " " + "Age:" + age);
 				System.out.println("-----------------------------------------------------------------------");
 			}
 			resultSet.close();
@@ -36,7 +37,15 @@ public class PostgreDataFetch {
 			e.printStackTrace();
 			
 		} finally {
-			System.out.println("Terminates the process.");
+			System.out.println("End of process.");
 		}
 	}
 }
+
+// Result
+//Connected to the PostgreSQL server successfully.
+//CustomerID:1 Name:Yohei Kanebako Sex:M Age:30
+//-----------------------------------------------------------------------
+//CustomerID:2 Name:Rika Kanebako Sex:F Age:29
+//-----------------------------------------------------------------------
+//End of process.
