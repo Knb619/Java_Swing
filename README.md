@@ -1,7 +1,7 @@
 # Swing Tutorial
 
 
-## ◆Milestones
+## ◆Tasks
 1.  Java8で実装された機能を検証・把握                                    -> Complete<br>
 2.  SwingでのGUI開発の基礎をキャッチアップ                               -> Work in progress<br>  
 3.  PostgreSQL動作環境を構築 (DockerfileからBuildし、Container起動)      -> Complete<br>
