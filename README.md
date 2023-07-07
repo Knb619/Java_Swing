@@ -10,8 +10,8 @@
 6.  Java8からSQLを実行し、PostgreSQLからデータを取得・結果を表示する     -> Complete<br>
 7.  Java8 (Swing) を使い、DB接続・値取得・追加・削除・更新を行う         -> Complete<br>
 8.  Java8 (Swing) で画面を作成・DB接続を行うミニアプリを作成する         -> Work in progress<br>
-9.  OracleDB実行環境をDockerで構築                                       -> Work in progress<br>
-10. Java8 からSQLを実行し、OracleDBからデータを取得・結果を表示する      -> Work in progress<br>
+9.  OracleDB実行環境をDockerで構築                                       -> Complete<br>
+10. Java8 からSQLを実行し、OracleDBからデータを取得・結果を表示する      -> Complete<br>
 
 
 ### Other
