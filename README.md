@@ -16,5 +16,5 @@
 
 ### Other
 1. 課題の進捗状況が分かりにくいので、Issueで課題管理 or スプレッドシートで進捗管理する。 -> TBD<br>
-2. 証券業務キャッチアップ -> Work in progres<br>
+2. 証券業務キャッチアップ -> Work in progress<br>
 
