@@ -126,14 +126,9 @@ public class TradingAppPostgre extends JFrame {
         	JFrame historyFrame = new JFrame("履歴");
         	historyFrame.setSize(800, 600);
         	
-        	// パネル作成
-        	JPanel historyPanel2 = new JPanel();
-        	historyPanel2.setLayout(new BorderLayout());
-        	
         	// 履歴表示用パネルを作成
         	// レイアウトマネージャを使用しない自由配置のパネルを作成
         	JPanel contentPanel = new JPanel(null);
-//        	scrollPane.setViewportView(contentPanel);
         	
         	// 項目名表示用パネル作成
         	JPanel headerPanel = new JPanel(new GridLayout(1, 3));
@@ -144,8 +139,10 @@ public class TradingAppPostgre extends JFrame {
         	contentPanel.add(headerPanel);
         	
         	// スクロールペイン作成 (https://www.javadrive.jp/tutorial/jscrollpane/index1.html)
-        	JScrollPane scrollPane = new JScrollPane();
-        	contentPanel.add(scrollPane, BorderLayout.CENTER);
+        	JScrollPane scrollPane = new JScrollPane(contentPanel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        	scrollPane.setViewportView(contentPanel);
+//        	contentPanel.add(scrollPane);
+//        	contentPanel.add(scrollPane, BorderLayout.CENTER);
         	
         	// DBから履歴を検索
         	try {
@@ -178,6 +175,7 @@ public class TradingAppPostgre extends JFrame {
 	
 	                    row++;
 	        		}
+	        		contentPanel.setBounds(0, 0, 600, row * 30 + 20);
 	        	}
         	} catch (SQLException e2) {
         		System.out.println("[ERROR] SQLExceptions are raised.");
@@ -187,6 +185,73 @@ public class TradingAppPostgre extends JFrame {
         	historyFrame.add(contentPanel);
         	historyFrame.setVisible(true);
         });
+//        historyButton.addActionListener(e -> {
+//        	JFrame historyFrame = new JFrame("履歴");
+//        	historyFrame.setSize(800, 600);
+//        	
+//        	// パネル作成
+//        	JPanel historyPanel2 = new JPanel();
+//        	historyPanel2.setLayout(new BorderLayout());
+//        	
+//        	// 履歴表示用パネルを作成
+//        	// レイアウトマネージャを使用しない自由配置のパネルを作成
+//        	JPanel contentPanel = new JPanel(null);
+//        	
+//        	// 項目名表示用パネル作成
+//        	JPanel headerPanel = new JPanel(new GridLayout(1, 3));
+//        	headerPanel.add(new JLabel("銘柄"));
+//        	headerPanel.add(new JLabel("価格"));
+//        	headerPanel.add(new JLabel("購買区分"));
+//        	headerPanel.setBounds(1, 10, 200, 20);
+//        	contentPanel.add(headerPanel);
+//        	
+//        	// スクロールペイン作成 (https://www.javadrive.jp/tutorial/jscrollpane/index1.html)
+//        	JScrollPane scrollPane = new JScrollPane(contentPanel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+//        	scrollPane.setViewportView(contentPanel);
+////        	contentPanel.add(scrollPane);
+////        	contentPanel.add(scrollPane, BorderLayout.CENTER);
+//        	
+//        	// DBから履歴を検索
+//        	try {
+//	        	ResultSet resultset = fetchHistory();
+//	        	if (resultset != null) {
+//	        		int row = 1;
+////	        		int row = 0;
+//	        		while(resultset.next()) {
+//	        			String symbol = resultset.getString("symbol");
+//	        			int price = resultset.getInt("quantity");
+//	        			String type = resultset.getString("type");
+//	        			
+//	        			// 銘柄表示エリア
+//	        			JLabel symbolLabal = new JLabel(symbol);
+//	        			symbolLabal.setBounds(1, row * 30, 200, 20);
+////	        			symbolLabal.setBounds(30, row * 30, 200, 20);
+//	                    contentPanel.add(symbolLabal);
+//	
+//	                    // 価格表示エリア
+//	                    JLabel priceLabel2 = new JLabel(String.valueOf(price));
+//	                    priceLabel2.setBounds(111, row * 30, 200, 20);
+////	                    priceLabel2.setBounds(140, row * 30, 200, 20);
+//	                    contentPanel.add(priceLabel2);
+//	
+//	                    // 購買区分表示エリア
+//	                    JLabel typeLabel = new JLabel(type);
+//	                    typeLabel.setBounds(221, row * 30, 200, 20);
+////	                    typeLabel.setBounds(250, row * 30, 200, 20);
+//	                    contentPanel.add(typeLabel);
+//	
+//	                    row++;
+//	        		}
+//	        		contentPanel.setBounds(0, 0, 600, row * 30 + 20);
+//	        	}
+//        	} catch (SQLException e2) {
+//        		System.out.println("[ERROR] SQLExceptions are raised.");
+//    			e2.printStackTrace();
+//			}
+//        	// 履歴ウィンドウを表示
+//        	historyFrame.add(contentPanel);
+//        	historyFrame.setVisible(true);
+//        });
         
         // ウィンドウを表示
         setVisible(true);
