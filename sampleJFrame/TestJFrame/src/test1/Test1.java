@@ -19,7 +19,5 @@ public class Test1 extends JFrame {
 		
 		//frame.setBounds(220, 20, 900, 600);	// frameのサイズと位置を同時に指定
 		//frame.setLocation(220, 20);// Windowの初期ロケーションを指定 引数⇒(x:横, y:縦)
-		
-		
 	}
 }
